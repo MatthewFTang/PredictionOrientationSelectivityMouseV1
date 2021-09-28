@@ -6,10 +6,10 @@ The underlying code for the manuscript :
 **Prediction errors increase neuronal response in mouse visual cortex through gain amplification**
 
 
-Tang, Kheradpezhouh, Lee, Dickinson, Mattingley and Arabzadeh\n
-Eccles Institute of Neuroscience\n
-John Curtin School of Medical Research \n
-The Australian National University \n
+-Tang, Kheradpezhouh, Lee, Dickinson, Mattingley and Arabzadeh
+-Eccles Institute of Neuroscience
+-John Curtin School of Medical Research 
+-The Australian National University 
 
 https://jcsmr.anu.edu.au/research/groups/arabzadeh-group-neural-coding
 
