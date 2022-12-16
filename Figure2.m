@@ -111,7 +111,7 @@ for len=1:23
 
 end
 cd(outputPath)
-save('SigPredictionCirc','StoreMod','StoreCirc','StoreStats','StoreStatTime','StoreExpectation')
+save('SigPredictionCirc','StoreMod','StoreCirc','StoreStats','StoreStatTime','StoreExpectation','StoreExpect')
 %%
 nCount=1;
 BigS=[]

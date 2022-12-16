@@ -336,50 +336,84 @@ set(gcf,'Position',[   251   125   299   861])
 cd(figPath)
 set(gcf,'Renderer','painters')
 print(['ResponseTimeCoursePreferredAna' '.eps'],'-depsc')
-
-%% Figure 6cd
+%%
+%%
 c=1;
 close all
-for var =[2 4]
+for var =[1:4]
 
     d=fitStore(:,[1 2 3],var);
-    subplot(1,2,c)
-    c=c+1;
-    plot((d(:,1)),(d(:,3)),'ko','MarkerSize',6,'MarkerFaceColor','k')
-    min_d = min(min((d)));
-    max_d= max(max((d)));
-    hold on
-    axis equal
-    if var ==2
-        set(gca,'XScale','log','YScale','log')
 
-        ylim([1,100])
-        xlim([1,100])
-        xticklabels([1,10,100])
-        yticklabels([1,10,100])
+    if var ==1
 
-        x= logspace(0,max_d);
-        loglog(x,x,'k-','LineWidth',2)
+        d=real((d*100));
+        t=  'baseline';
+    elseif var ==2
+        t= 'gain';
+        d=real((d*100));
+
+    elseif var ==3
+        t= 'preferred orientation';
     else
-        ylim([15,max_d])
-        xlim([15,max_d])
-        xticks(0:20:80)
-        yticks(0:20:80)
-        plot([min_d,max_d],[min_d,max_d],'k-','LineWidth',2)
+        t= 'width';
+    end
+    datM=mean(d);
+    [H,P,CI,stats] =ttest((squeeze(d(:,1))),(squeeze(d(:,end))))
+
+    datSE =std(d)/sqrt(length(d));
+    subplot(2,2,var)
+
+
+    violinplot(d,{'Random','Expected','Unexpected'},'ViolinColor',cols)
+
+    title(sprintf('%s \n t (%2.0f) = %2.2f, p = %2.4f',...
+        t,stats.df,abs(stats.tstat),real(P)))
+    if var ==1
+        ylabel('dF/F ( % )')
+
+    elseif  var ==2
+        ylabel('dF/F ( % )')
+
+        set(gca,'Yscale','log')
+    elseif var ==3;
+        ylabel('Orientation ( \circ )')
+    else
+        ylabel('Orientation ( \circ )')
 
     end
-    ylabel('Unexpected')
-    xlabel('Random')
-    if var ==2
-        title('Gain ( dF/F % )')
-
-    elseif var==4
-        title('Width (\circ)')
-    end
-    box off
+    xtickangle(45)
     MakePrettyFigure
 
 end
-set(gcf,'Position',[ 680   763   626   335])
+set(gcf,'Renderer','painters')
+set(gcf,'Position',[   614   415   666   723])
 cd(figPath)
-print(['SummaryStatsAna' '.eps'],'-depsc')
+saveas(gcf, 'SummaryPredictionStatsAna.pdf')
+%% Figure 6cd
+close all
+var =2
+subplot(1,2,1)
+    d=fitStore(:,[1 3],var);
+      scatter(d(:,1),d(:,2),'Marker','o','MarkerFaceColor','k','MarkerEdgeColor','k')
+      set(gca,'XScale','log','YScale','log')
+      xlim([0.15,10000])
+      ylim([0.15,10000])
+      x =logspace(0,100);
+      hold on
+      plot(x,x,'k','LineWidth',2)
+axis  square
+
+xlabel('Random','FontWeight','bold')
+ylabel('Unexpected','FontWeight','bold')
+MakePrettyFigure
+subplot(1,2,2)
+
+histogram(d(:,1)-d(:,2),15,'FaceColor',[.5,.5,.5])
+hold on 
+plot([0,0],[0,40],'LineWidth',2)
+xlim([-50,50])
+axis square
+MakePrettyFigure
+
+cd(figPath)
+saveas(gcf,'scatter_ana_gain.pdf')
