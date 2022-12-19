@@ -14,6 +14,7 @@ The response of cortical neurons to sensory stimuli is shaped both by past event
 ![Alt text](/githubFigure.png)
 
 ___
+## Getting started
 [The data are available here](https://osf.io/t2vb3) <br><br>
 
 To use, edit the SetUpPaths.m script. <br>
