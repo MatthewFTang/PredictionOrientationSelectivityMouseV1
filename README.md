@@ -2,7 +2,7 @@
 
 The underlying code for the manuscript : 
 
-Expectation violations enhance neuronal encoding of sensory information in mouse primary visual cortex. **Nature Communications, in press**. 
+Expectation violations enhance neuronal encoding of sensory information in mouse primary visual cortex.
 
 Authors: Matthew F. Tang, Ehsan Kheradpezhouh, Conrad C.Y. Lee, J. Edwin Dickinson, Jason B. Mattingley, and Ehsan Arabzadeh
 
