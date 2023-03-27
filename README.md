@@ -6,6 +6,9 @@ Expectation violations enhance neuronal encoding of sensory information in mouse
 
 Authors: Matthew F. Tang, Ehsan Kheradpezhouh, Conrad C.Y. Lee, J. Edwin Dickinson, Jason B. Mattingley, and Ehsan Arabzadeh
 
+Citation  : Tang, M.F., Kheradpezhouh, E., Lee, C.C.Y. et al. Expectation violations enhance neuronal encoding of sensory information in mouse primary visual cortex. Nat Commun 14, 1196 (2023). https://doi.org/10.1038/s41467-023-36608-8
+
+[Published paper](https://www.nature.com/articles/s41467-023-36608-8)
 [Preprint](https://www.biorxiv.org/content/10.1101/2021.10.26.466004v2)
 
 ## Abstract
